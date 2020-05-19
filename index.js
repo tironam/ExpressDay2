@@ -7,27 +7,49 @@ const app = express()
 // const a = parseInt(pieces[2])
 // const b = parseInt(pieces[3])
 
+// My code that I'm very proud of
+// app.get('/:op/:a/:b', (req, res) => {
+//     const pieces = req.url.split('/')
+//     const op = pieces[1]
+//     const a = parseInt(pieces[2])
+//     const b = parseInt(pieces[3])
+
+//     switch (op) {
+//     case 'add':
+//         res.end(`${a + b}`)
+//         break
+//     case 'subtract':
+//         res.end(`${a - b}`)
+//         break
+//     case 'multiply':
+//         res.end(`${a * b}`)
+//         break
+//     case 'divide':
+//         res.end(`${a / b}`)
+//         break
+//     }
+//     console.log(req.params)
+// })
+
+// Quniton's code
 app.get('/:op/:a/:b', (req, res) => {
-    const pieces = req.url.split('/')
-    const op = pieces[1]
-    const a = parseInt(pieces[2])
-    const b = parseInt(pieces[3])
-    
-    switch (op) {
-    case 'add':
-        res.end(`${a + b}`)
-        break
-    case 'subtract':
-        res.end(`${a - b}`)
-        break
-    case 'multiply':
-        res.end(`${a * b}`)
-        break
-    case 'divide':
-        res.end(`${a / b}`)
-        break
+    let a = parseInt(req.params.a)
+    let b = parseInt(req.params.b)
+
+    switch (req.params.op) {
+        case 'add':
+            res.end(`${a + b}`)
+            break
+        case 'subtract':
+            res.end(`${a - b}`)
+            break
+        case 'multiply':
+            res.end(`${a * b}`)
+            break
+        case 'divide':
+            res.end(`${a / b}`)
+            break
     }
-    console.log(req.params)
 })
 
 
